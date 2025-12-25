@@ -1,0 +1,48 @@
+{
+    "name": "wsl-remote-connector",
+    "version": "1.0.0",
+    "description": "Cross-IDE WSL connection library with lightweight server",
+    "license": "MIT",
+    "author": "0deep",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/0deep/wsl-remote-connector.git"
+    },
+    "main": "./dist/index.js",
+    "types": "./dist/index.d.ts",
+    "bin": {
+        "wsl-remote": "./dist/cli.js"
+    },
+    "scripts": {
+        "build": "tsc",
+        "build:server": "tsc -p server/tsconfig.json",
+        "build:all": "npm run build && npm run build:server",
+        "test": "jest",
+        "test:watch": "jest --watch",
+        "test:coverage": "jest --coverage",
+        "test:unit": "jest tests/types.test.ts tests/wsl-exec.test.ts",
+        "test:integration": "jest tests/cli.test.ts",
+        "prepare": "npm run build:all"
+    },
+    "dependencies": {
+        "@types/debug": "^4.1.12",
+        "debug": "^4.4.3",
+        "vscode-jsonrpc": "^8.2.0"
+    },
+    "devDependencies": {
+        "@types/jest": "^30.0.0",
+        "@types/node": "^20.0.0",
+        "jest": "^30.2.0",
+        "ts-jest": "^29.4.6",
+        "typescript": "^5.3.0"
+    },
+    "engines": {
+        "node": ">=18.0.0"
+    },
+    "keywords": [
+        "wsl",
+        "remote",
+        "ide",
+        "lightweight"
+    ]
+}
